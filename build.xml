@@ -28,7 +28,7 @@
     <!-- Empaquetar en WAR -->
     <target name="war" depends="compile">
         <mkdir dir="dist" />
-        <war destfile="dist/Sicefa.war" webxml="${web.dir}/WEB-INF/web.xml">
+        <war destfile="dist/ROOT.war" webxml="${web.dir}/WEB-INF/web.xml">
             <classes dir="${build.dir}/classes" />
             <lib dir="${lib.dir}" includes="**/*.jar"/>
             <fileset dir="${web.dir}">
@@ -39,7 +39,7 @@
 
     <!-- Copiar el WAR a Tomcat -->
     <target name="deploy-local" depends="war">
-        <copy file="dist/Sicefa.war" todir="${tomcat.dir}/webapps" />
+        <copy file="dist/ROOT.war" todir="${tomcat.dir}/webapps" />
     </target>
 
     <!-- Arrancar Tomcat localmente -->

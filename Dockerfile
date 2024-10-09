@@ -9,7 +9,7 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 ARG CACHEBUST=1
 
 # Copia el archivo WAR de tu aplicación al directorio webapps de Tomcat
-COPY ./dist/Sicefa.war /usr/local/tomcat/webapps/
+COPY ./dist/ROOT.war /usr/local/tomcat/webapps/
 
 # Exponer el puerto 8080 para acceder a Tomcat
 EXPOSE 8080
