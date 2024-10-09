@@ -117,7 +117,7 @@ CREATE TABLE producto
   unidadMedida      VARCHAR(25) NOT NULL DEFAULT '',
   presentacion      VARCHAR(200) NOT NULL,
   principalIndicacion VARCHAR(255) NOT NULL DEFAULT '',
-  contraindicaciones VARCHAR(255) NOT NULL DEFAULT '',
+  contraindicaciones VARCHAR(355) NOT NULL DEFAULT '',
   concentracion     VARCHAR(255) NOT NULL,
   unidadesEnvase    INT NOT NULL DEFAULT 1,
   precioCompra      FLOAT NOT NULL DEFAULT 0.0,
