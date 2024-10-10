@@ -8,10 +8,15 @@ Proyecto Sistema Central de Farmacias, elaborado en la Universidad Tecnologica d
 
 ## ✨ Demo
 
+### Enlace
 [https://sicefa.onrender.com/](https://sicefa.onrender.com/)
 
+### Sicefa Central
 - Usuario: Administrador
 - Contraseña: Administrador
+### Sicefa Sucursal
+- Usuario: Admins2
+- Contraseña: Admins2
 
 
 ## 🖥️ Ejecución en un entorno local
