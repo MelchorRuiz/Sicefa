@@ -3,7 +3,7 @@
 
 ![Sicefa](https://socialify.git.ci/MelchorRuiz/Sicefa/image?description=1&font=Rokkitt&language=1&name=1&owner=1&pattern=Solid&theme=Auto)
 
-Proyecto Sistema Central de Farmacias, elaborado en la Universidad Tecnologica de León durante mis estudios en TSU Desarrallo de Software Multiplataforma
+Proyecto Sistema Central de Farmacias, elaborado en la Universidad Tecnológica de León durante mis estudios en TSU Desarrollo de Software Multiplataforma
 
 
 ## ✨ Demo
