@@ -1,3 +1,4 @@
+USE sicefa;
 DELIMITER //
 Drop Trigger if exists crearInventario//
 
