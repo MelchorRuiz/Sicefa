@@ -1,18 +1,32 @@
-# Usar la imagen base de Tomcat 9 (puedes cambiar la versión si es necesario)
-FROM tomcat:10.1.30
+FROM ubuntu:20.04
 
-# Establece la variable de entorno para que Tomcat elimine la aplicación predeterminada
-ENV CATALINA_HOME /usr/local/tomcat
-ENV PATH $CATALINA_HOME/bin:$PATH
+ENV MYSQL_DATABASE="sicefa"
+ENV MYSQL_URL="jdbc:mysql://127.0.0.1:3306/$MYSQL_DATABASE?useSSL=false&serverTimezone=UTC"
+ENV MYSQL_USER="root"
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Agregar un argumento que se actualizará para invalidar la caché
-ARG CACHEBUST=1
+RUN apt-get update && apt-get install -y software-properties-common
 
-# Copia el archivo WAR de tu aplicación al directorio webapps de Tomcat
-COPY ./dist/ROOT.war /usr/local/tomcat/webapps/
+RUN add-apt-repository ppa:openjdk-r/ppa -y && apt-get update
+RUN apt-get install -y openjdk-17-jdk mysql-server wget
 
-# Exponer el puerto 8080 para acceder a Tomcat
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.31/bin/apache-tomcat-10.1.31.tar.gz
+RUN tar xzvf apache-tomcat-10.1.31.tar.gz -C /opt
+RUN mv /opt/apache-tomcat-10.1.31 /opt/tomcat
+RUN rm apache-tomcat-10.1.31.tar.gz
+RUN rm -rf /opt/tomcat/webapps/*
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+ENV PATH="$JAVA_HOME/bin:$PATH"
+
+COPY ./dist/ROOT.war /opt/tomcat/webapps/
+COPY ./db/ /docker-entrypoint-initdb.d/
+
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 EXPOSE 8080
 
-# Iniciar Tomcat
-CMD ["catalina.sh", "run"]
+CMD ["/start.sh"]
