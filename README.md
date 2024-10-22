@@ -39,10 +39,15 @@ Crea el archivo .war
   ant war
 ```
 
-Inicia el servidor
+Crea la imagen Docker
+```bash
+   docker build -t sicefa .
+```
+
+Crea el contenedor Docker
 
 ```bash
-  docker-compose up --build
+  docker run -d -p 8080:8080 -e MYSQL_PASSWORD=root --name sicefa sicefa
 ```
 
 
